@@ -16,7 +16,7 @@ public class HibernateTaskRepository implements TaskRepository {
     private final SessionFactory sessionFactory;
 
     @Override
-    public Task add(Task task) {
+    public Task save(Task task) {
         try (Session session = sessionFactory.openSession()) {
             var tx = session.beginTransaction();
             try {
