@@ -9,6 +9,16 @@
         <input type="hidden" name="id" th:field="*{id}">
 
         <div class="mb-3">
+            <label for="title" class="form-label"><b>Title</b></label>
+            <input type="text"
+                   class="form-control"
+                   id="title"
+                   name="title"
+                   th:field="*{title}"
+                   placeholder="Enter task title">
+        </div>
+
+        <div class="mb-3">
             <label for="description" class="form-label"><b>Description</b></label>
             <textarea class="form-control"
                       id="description"

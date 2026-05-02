@@ -64,7 +64,8 @@ public class HibernateTaskRepository implements TaskRepository {
             var tx = session.beginTransaction();
             try {
                 int result = session.createQuery(
-                        "UPDATE Task SET description = :description WHERE id = :id")
+                        "UPDATE Task SET title = :title, description = :description WHERE id = :id")
+                        .setParameter("title", task.getTitle())
                         .setParameter("description", task.getDescription())
                         .setParameter("id", task.getId())
                         .executeUpdate();

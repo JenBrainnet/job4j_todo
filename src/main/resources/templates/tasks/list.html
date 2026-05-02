@@ -33,7 +33,7 @@
             <tr>
                 <th><i class="bi bi-square"></i></th>
                 <th scope="col">#</th>
-                <th scope="col">Description</th>
+                <th scope="col">Title</th>
                 <th scope="col">Creation Date</th>
                 <th scope="col">State</th>
             </tr>
@@ -50,7 +50,7 @@
                 </td>
                 <td th:text="${task.id}"></td>
                 <td>
-                    <a th:text="${task.description}"
+                    <a th:text="${task.title}"
                        th:href="@{/tasks/{taskId}(taskId=${task.id})}">
                     </a>
                 </td>

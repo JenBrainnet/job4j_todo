@@ -18,6 +18,8 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
+    private String title;
+
     private String description;
 
     @DateTimeFormat(pattern = "dd-MM-yyyy HH:mm")
