@@ -1,17 +1,19 @@
 package ru.job4j.todo.service;
 
+import org.springframework.stereotype.Service;
 import ru.job4j.todo.model.Task;
 import ru.job4j.todo.repository.TaskRepository;
 
 import java.util.List;
 import java.util.Optional;
 
+@Service
 public class DefaultTaskService implements TaskService {
 
     private final TaskRepository taskRepository;
 
-    public DefaultTaskService(TaskRepository hibernateTaskRepository) {
-        this.taskRepository = hibernateTaskRepository;
+    public DefaultTaskService(TaskRepository taskRepository) {
+        this.taskRepository = taskRepository;
     }
 
     @Override

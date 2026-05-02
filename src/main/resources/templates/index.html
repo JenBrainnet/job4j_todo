@@ -4,19 +4,17 @@
 <body>
 <div th:replace="~{fragments/navigation :: navigation}"></div>
 
-<div class="container mt-4">
-    <h3>Project job4j_todo, completed as part of the Job4j course</h3>
+<main class="container mt-4">
+    <h3>TODO list</h3>
     <p class="text-muted">
         A simple TODO list application for creating, viewing, editing and completing tasks.
     </p>
 
     <ul>
-        <li><a th:href="@{/tasks}">All tasks</a></li>
-        <li><a th:href="@{/tasks/done}">Completed tasks</a></li>
-        <li><a th:href="@{/tasks/new}">New tasks</a></li>
+        <li><a th:href="@{/tasks}">Tasks</a></li>
         <li><a th:href="@{/tasks/create}">Create task</a></li>
     </ul>
-</div>
+</main>
 
 <footer th:replace="~{fragments/footer :: footer}"></footer>
 </body>

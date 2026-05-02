@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragments/head :: head}"></head>
+<body>
+<div th:replace="~{fragments/navigation :: navigation}"></div>
+
+<div class="container">
+    <div class="row mt-3 mb-3">
+        <div class="col-6">
+            <a th:href="@{/tasks}"
+               th:class="${filter == 'all'} ? 'btn btn-primary' : 'btn btn-outline-secondary'">
+                All
+            </a>
+
+            <a th:href="@{/tasks/done}"
+               th:class="${filter == 'done'} ? 'btn btn-primary' : 'btn btn-outline-secondary'">
+                Completed
+            </a>
+
+            <a th:href="@{/tasks/new}"
+               th:class="${filter == 'new'} ? 'btn btn-primary' : 'btn btn-outline-secondary'">
+                New
+            </a>
+        </div>
+        <div class="col-6 text-end">
+            <a class="btn btn-success" th:href="@{/tasks/create}">Add task</a>
+        </div>
+    </div>
+
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th><i class="bi bi-square"></i></th>
+                <th scope="col">#</th>
+                <th scope="col">Description</th>
+                <th scope="col">Creation Date</th>
+                <th scope="col">State</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="task: ${tasks}">
+                <td>
+                    <span th:if="${task.done}">
+                        <i class="bi bi-check-square"></i>
+                    </span>
+                    <span th:if="${!task.done}">
+                        <i class="bi bi-square"></i>
+                    </span>
+                </td>
+                <td th:text="${task.id}"></td>
+                <td>
+                    <a th:text="${task.description}"
+                       th:href="@{/tasks/{taskId}(taskId=${task.id})}">
+                    </a>
+                </td>
+                <td th:text="${{task.created}}"></td>
+                <td>
+                    <span th:if="${task.done}">Completed</span>
+                    <span th:if="${!task.done}">New</span>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+<footer th:replace="~{fragments/footer :: footer}"></footer>
+</body>
+</html>
