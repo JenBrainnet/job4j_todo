@@ -35,3 +35,17 @@ The application follows a three-layer architecture:
 - Persistence layer
 
 Hibernate `SessionFactory` is created once as a Spring bean and reused in the persistence layer.
+
+## Screenshots
+
+### Task list
+![Task list](img/task-list.png)
+
+### Create task
+![Create task](img/task-create.png)
+
+### Task details
+![Task details](img/task-details.png)
+
+### Update task
+![Update task](img/task-update.png)
