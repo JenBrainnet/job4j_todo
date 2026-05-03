@@ -1,5 +1,6 @@
 package ru.job4j.todo.service.task;
 
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import ru.job4j.todo.model.Task;
 import ru.job4j.todo.repository.task.TaskRepository;
@@ -8,13 +9,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class DefaultTaskService implements TaskService {
 
     private final TaskRepository taskRepository;
-
-    public DefaultTaskService(TaskRepository taskRepository) {
-        this.taskRepository = taskRepository;
-    }
 
     @Override
     public Task save(Task task) {
