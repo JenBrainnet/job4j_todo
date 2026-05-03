@@ -5,25 +5,26 @@
 <div th:replace="~{fragments/navigation :: navigation}"></div>
 
 <div class="container">
-    <div class="row mt-3 mb-3">
-        <div class="col-6">
-            <a th:href="@{/tasks}"
-               th:class="${filter == 'all'} ? 'btn btn-primary' : 'btn btn-outline-secondary'">
-                All
-            </a>
+    <div class="row mt-3 mb-3 align-items-center">
+        <div class="col-12">
+            <div class="btn-group" role="group" aria-label="Task filter">
+                <a th:href="@{/tasks}"
+                   th:class="${filter == 'all'} ? 'btn btn-sm btn-secondary' : 'btn btn-sm btn-outline-secondary'">
+                    All
+                </a>
 
-            <a th:href="@{/tasks/done}"
-               th:class="${filter == 'done'} ? 'btn btn-primary' : 'btn btn-outline-secondary'">
-                Completed
-            </a>
+                <a th:href="@{/tasks/done}"
+                   th:class="${filter == 'done'} ? 'btn btn-sm btn-secondary' : 'btn btn-sm btn-outline-secondary'">
+                    Completed
+                </a>
 
-            <a th:href="@{/tasks/new}"
-               th:class="${filter == 'new'} ? 'btn btn-primary' : 'btn btn-outline-secondary'">
-                New
-            </a>
-        </div>
-        <div class="col-6 text-end">
-            <a class="btn btn-success" th:href="@{/tasks/create}">Add task</a>
+                <a th:href="@{/tasks/new}"
+                   th:class="${filter == 'new'} ? 'btn btn-sm btn-secondary' : 'btn btn-sm btn-outline-secondary'">
+                    New
+                </a>
+            </div>
+
+            <a class="btn btn-sm btn-primary ml-4" th:href="@{/tasks/create}">Add task</a>
         </div>
     </div>
 
