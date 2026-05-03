@@ -1,6 +1,7 @@
-package ru.job4j.todo.repository;
+package ru.job4j.todo.repository.task;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.stereotype.Repository;
@@ -11,6 +12,7 @@ import java.util.Optional;
 
 @Repository
 @AllArgsConstructor
+@Slf4j
 public class HibernateTaskRepository implements TaskRepository {
 
     private final SessionFactory sessionFactory;
@@ -25,6 +27,7 @@ public class HibernateTaskRepository implements TaskRepository {
                 return task;
             } catch (Exception e) {
                 tx.rollback();
+                log.error("Failed to save task: {}", task.getTitle(), e);
                 throw e;
             }
         }
@@ -73,6 +76,7 @@ public class HibernateTaskRepository implements TaskRepository {
                 return result > 0;
             } catch (Exception e) {
                 tx.rollback();
+                log.error("Failed to update task with id: {}", task.getId(), e);
                 throw e;
             }
         }
@@ -91,6 +95,7 @@ public class HibernateTaskRepository implements TaskRepository {
                 return result > 0;
             } catch (Exception e) {
                 tx.rollback();
+                log.error("Failed to complete task with id: {}", id, e);
                 throw e;
             }
         }
@@ -109,6 +114,7 @@ public class HibernateTaskRepository implements TaskRepository {
                 return result > 0;
             } catch (Exception e) {
                 tx.rollback();
+                log.error("Failed to delete task with id: {}", id, e);
                 throw e;
             }
         }
